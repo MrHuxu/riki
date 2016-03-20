@@ -5,6 +5,11 @@ import React, {
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
+import { connect } from 'react-redux';
+
+import {
+  changeCategory
+} from '../actions/app-actions';
 
 const styles = StyleSheet.create({
   button: {
@@ -21,6 +26,15 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapItemToLabel = {
+  'hacker-news'    : 'HackerNews',
+  'reddit'         : 'Reddit',
+  'stack-overflow' : 'Stack Overflow',
+  'twitter'        : 'Twitter',
+  'zhihu'          : 'Zhihu',
+  'test'           : 'Test'
+}
+
 class SideBarItem extends Component {
   constructor (props) {
     super(props);
@@ -30,6 +44,7 @@ class SideBarItem extends Component {
 
     this._onHighlight = this._onHighlight.bind(this);
     this._onUnhighlight = this._onUnhighlight.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   _onHighlight () {
@@ -40,21 +55,27 @@ class SideBarItem extends Component {
     this.setState({active: false});
   }
 
+  handleItemClick () {
+    var category = this.props.children;
+    this.props.dispatch(changeCategory(category));
+  }
+
   render() {
     var colorStyle = {
       color: this.state.active ? '#fff' : '#000',
     };
     return (
       <TouchableHighlight
-        onHideUnderlay={this._onUnhighlight}
-        onPress={this.props.onPress}
-        onShowUnderlay={this._onHighlight}
-        style={[styles.button, this.props.style]}
-        underlayColor="#a9d9d4">
-          <Text style={[styles.buttonText, colorStyle]}>{this.props.children}</Text>
+        onHideUnderlay = {this._onUnhighlight}
+        onShowUnderlay = {this._onHighlight}
+        onPress        = {this.handleItemClick}
+        style          = {[styles.button, this.props.style]}
+        underlayColor  = "#a9d9d4"
+      >
+          <Text style={[styles.buttonText, colorStyle]}>{mapItemToLabel[this.props.children]}</Text>
       </TouchableHighlight>
     );
   }
 };
 
-export default SideBarItem;
+export default connect()(SideBarItem);
