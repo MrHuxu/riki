@@ -11,24 +11,25 @@ import React, {
   View,
   Image
 } from 'react-native';
+import SideMenu from 'react-native-side-menu';
+
+import SideBar from './components/SideBar';
+import Content from './components/Content';
 
 class riki extends Component {
   render() {
+  var menu = (
+      <SideBar />
+  );
     return (
-      <View style={styles.container}>
-        <Text> Me </Text>
-        <Image style={{ width: 63, height: 81 }} source={ {uri: 'https://raw.githubusercontent.com/MrHuxu/img-repo/master/blog/1.pic.jpg' }} />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <SideMenu
+        menu   = {<SideBar />}
+        isOpen = {true}
+      >
+        <View style={styles.container}>
+          <Content category={'Test'} />
+        </View>
+      </SideMenu>
     );
   }
 }
