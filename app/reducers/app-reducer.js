@@ -1,14 +1,23 @@
 import {
-  CHANGE_CATEGORY
+  CHANGE_CATEGORY,
+  CHANGE_SIDEBAR
 } from '../actions/app-actions';
 
 export function app(state = {
-  category: 'hacker-news'
+  sidebarOpen : false,
+  category    : 'hacker-news'
 }, action) {
   switch (action.type) {
     case CHANGE_CATEGORY:
       return Object.assign({}, state, {
-        category: action.data
+        sidebarOpen : false,
+        category    : action.data
+      });
+
+    case CHANGE_SIDEBAR:
+      return Object.assign({}, state, {
+        sidebarOpen : action.data,
+        category    : state.category
       });
 
     default:

@@ -5,3 +5,11 @@ export function changeCategory(category) {
     data : category
   };
 };
+
+export const CHANGE_SIDEBAR = 'CHANGE_SIDEBAR';
+export function changeSidebar(isOpen) {
+  return {
+    type : CHANGE_SIDEBAR,
+    data : isOpen
+  };
+};

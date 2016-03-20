@@ -5,18 +5,12 @@ import React, {
   StyleSheet,
   View
 } from 'react-native';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
+import { connect } from 'react-redux';
 import SideMenu from 'react-native-side-menu';
-
-const store = compose(
-  applyMiddleware(thunkMiddleware)
-)(createStore)(reducers);
 
 import SideBar from './side-bar';
 import Content from './content';
-import reducers from '../reducers';
+import { changeSidebar } from '../actions/app-actions';
 
 const styles = StyleSheet.create({
   content: {
@@ -30,18 +24,23 @@ const styles = StyleSheet.create({
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <SideMenu
-          menu   = {<SideBar />}
-          isOpen = {true}
-        >
-          <View style={styles.content}>
-            <Content />
-          </View>
-        </SideMenu>
-      </Provider>
+      <SideMenu
+        menu   = {<SideBar />}
+        isOpen = {this.props.sidebarOpen}
+        onChange = {isOpen => this.props.dispatch(changeSidebar(isOpen))}
+      >
+        <View style={styles.content}>
+          <Content />
+        </View>
+      </SideMenu>
     );
   }
 }
 
-export default App;
+var mapStateToProps = function (state) {
+  return {
+    sidebarOpen: state.app.sidebarOpen
+  };
+};
+
+export default connect(mapStateToProps)(App);

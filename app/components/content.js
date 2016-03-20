@@ -34,7 +34,6 @@ class Content extends Component {
 };
 
 var mapStateToProps = function (state) {
-  console.log(state)
   return {
     category: state.app.category
   };

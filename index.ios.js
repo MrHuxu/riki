@@ -4,6 +4,6 @@
  */
 'use strict';
 import React, { AppRegistry } from 'react-native';
-import Riki from './app/components/app';
+import Container from './app/container';
 
-AppRegistry.registerComponent('Riki', () => Riki);
+AppRegistry.registerComponent('riki', () => Container);
