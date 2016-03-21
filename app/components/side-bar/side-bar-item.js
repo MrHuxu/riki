@@ -9,20 +9,23 @@ import { connect } from 'react-redux';
 
 import {
   changeCategory
-} from '../actions/app-actions';
+} from '../../actions/app-actions';
 
 const styles = StyleSheet.create({
   button: {
-    flex: 1,
-    height: 44,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    flex            : 1,
+    height          : 44,
+    alignSelf       : 'stretch',
+    justifyContent  : 'center',
+    overflow        : 'hidden',
+    backgroundColor : 'rgba(250, 250, 250, 0.2)',
+    marginBottom    : 4
   },
+
   buttonText: {
-    fontSize: 18,
-    margin: 5,
-    textAlign: 'center',
+    fontSize  : 18,
+    margin    : 5,
+    textAlign : 'center'
   },
 });
 
@@ -62,7 +65,7 @@ class SideBarItem extends Component {
 
   render() {
     var colorStyle = {
-      color: this.state.active ? '#fff' : '#000',
+      color: this.state.active ? '#fff' : '#eee',
     };
     return (
       <TouchableHighlight

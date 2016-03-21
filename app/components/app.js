@@ -27,6 +27,7 @@ class App extends Component {
       <SideMenu
         menu   = {<SideBar />}
         isOpen = {this.props.sidebarOpen}
+        openMenuOffset = {180}
         onChange = {isOpen => this.props.dispatch(changeSidebar(isOpen))}
       >
         <View style={styles.content}>

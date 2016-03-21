@@ -4,7 +4,7 @@ import {
 } from '../actions/app-actions';
 
 export function app(state = {
-  sidebarOpen : false,
+  sidebarOpen : true,
   category    : 'hacker-news'
 }, action) {
   switch (action.type) {
