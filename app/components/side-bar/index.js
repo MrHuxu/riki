@@ -9,8 +9,8 @@ import React, {
 } from 'react-native';
 
 import SideBarItem from './side-bar-item';
-const logo = require('../../assets/images/logo.jpg');
-const bgImage = require('../../assets/images/sidebar-background.jpg');
+import logo from '../../assets/images/logo.jpg';
+import bgImage from '../../assets/images/sidebar-background.jpg';
 
 const styles = StyleSheet.create({
   headerContainer: {
