@@ -12,9 +12,6 @@ import { fetchProjects } from '../../actions/test-actions';
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 const styles = StyleSheet.create({
-  list: {
-    marginTop: 200
-  }
 });
 
 class Test extends Component {

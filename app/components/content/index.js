@@ -38,6 +38,7 @@ class Content extends Component {
     return (
       <View style={styles.content}>
         <Header />
+        <Comp />
       </View>
     );
   }

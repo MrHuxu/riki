@@ -24,33 +24,33 @@ const categoryLabelMap = {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 18,
-    width: 380,
-    height: 60,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-    borderBottomRightRadius: 5,
-    borderBottomLeftRadius: 5
+    alignItems              : 'center',
+    justifyContent          : 'center',
+    paddingTop              : 18,
+    width                   : 325,
+    height                  : 80,
+    borderBottomWidth       : 1,
+    borderBottomColor       : '#ddd',
+    borderBottomRightRadius : 5,
+    borderBottomLeftRadius  : 5
   },
 
   hamburgerBar: {
-    position: 'absolute',
-    left: 20,
-    bottom: 6,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 7,
-    paddingRight: 7,
-    borderColor: '#aaa',
-    borderWidth: 1,
-    borderRadius: 7
+    position      : 'absolute',
+    left          : 20,
+    bottom        : 12,
+    paddingTop    : 8,
+    paddingBottom : 8,
+    paddingLeft   : 12,
+    paddingRight  : 12,
+    borderColor   : '#aaa',
+    borderWidth   : 1,
+    borderRadius  : 7
   },
 
   barIcon: {
-    width: 17,
-    height: 17
+    width  : 19,
+    height : 19
   }
 });
 
