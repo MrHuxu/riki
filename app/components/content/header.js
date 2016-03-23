@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     justifyContent          : 'center',
     paddingTop              : 18,
     width                   : 325,
-    height                  : 80,
+    height                  : 60,
+    backgroundColor         : '#F5FCFF',
     borderBottomWidth       : 1,
     borderBottomColor       : '#ddd',
     borderBottomRightRadius : 5,
@@ -37,15 +38,12 @@ const styles = StyleSheet.create({
 
   hamburgerBar: {
     position      : 'absolute',
-    left          : 20,
-    bottom        : 12,
+    left          : 3,
+    bottom        : 3,
     paddingTop    : 8,
     paddingBottom : 8,
     paddingLeft   : 12,
-    paddingRight  : 12,
-    borderColor   : '#aaa',
-    borderWidth   : 1,
-    borderRadius  : 7
+    paddingRight  : 12
   },
 
   barIcon: {
@@ -83,11 +81,9 @@ class Header extends Component {
     return (
       <View style={styles.headerContainer}>
         <TouchableHighlight
-          onHideUnderlay = {this._onUnhighlight}
-          onShowUnderlay = {this._onHighlight}
           onPress        = {this.handleItemClick}
           style          = {[styles.hamburgerBar]}
-          underlayColor  = "#ccc"
+          underlayColor  = "#fff"
         >
           <Image
             style  = {styles.barIcon}
